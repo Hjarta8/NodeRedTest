@@ -1,1 +1,82 @@
-[]
+[
+    {
+        "id": "d1331c655e18cc12",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9ec908a82f9b4275",
+        "type": "inject",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "5e7c01a6ad90cf32"
+            ]
+        ]
+    },
+    {
+        "id": "7d090bb2e77d8e3c",
+        "type": "debug",
+        "z": "d1331c655e18cc12",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5e7c01a6ad90cf32",
+        "type": "change",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Hello World!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "7d090bb2e77d8e3c"
+            ]
+        ]
+    }
+]
