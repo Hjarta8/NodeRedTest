@@ -103,14 +103,66 @@
         ]
     },
     {
-        "id": "c91c1697ccf1d42d",
-        "type": "link out",
+        "id": "f19852181255e293",
+        "type": "function",
         "z": "d1331c655e18cc12",
-        "name": "link out 1",
-        "mode": "link",
-        "links": [],
-        "x": 165,
-        "y": 240,
+        "name": "function 1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 440,
+        "wires": [
+            [
+                "c54400f3b064a677"
+            ]
+        ]
+    },
+    {
+        "id": "c54400f3b064a677",
+        "type": "change",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 440,
+        "wires": [
+            [
+                "8c11fa4bfc360b6b"
+            ]
+        ]
+    },
+    {
+        "id": "8c11fa4bfc360b6b",
+        "type": "debug",
+        "z": "d1331c655e18cc12",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 360,
         "wires": []
     }
 ]
