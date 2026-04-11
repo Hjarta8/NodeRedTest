@@ -48,8 +48,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 380,
-        "y": 220,
+        "x": 420,
+        "y": 180,
         "wires": []
     },
     {
@@ -86,7 +86,20 @@
         "name": "test",
         "info": "test push 1\n",
         "x": 170,
-        "y": 240,
+        "y": 180,
         "wires": []
+    },
+    {
+        "id": "0472fc5638a4259e",
+        "type": "catch",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 160,
+        "y": 320,
+        "wires": [
+            []
+        ]
     }
 ]
