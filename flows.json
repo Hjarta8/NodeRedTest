@@ -8,6 +8,586 @@
         "env": []
     },
     {
+        "id": "1b607c4bf53459a4",
+        "type": "subflow",
+        "name": "Button",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 680,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "d81c5188f589b9d7",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "group",
+                "type": "ui-page",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-sitemap",
+                    "label": {
+                        "en-US": "Group"
+                    },
+                    "type": "conf-types"
+                }
+            },
+            {
+                "name": "label",
+                "type": "str",
+                "value": "Button",
+                "ui": {
+                    "icon": "font-awesome/fa-align-justify",
+                    "label": {
+                        "en-US": "Label"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "payloadOut",
+                "type": "str",
+                "value": "Button Message",
+                "ui": {
+                    "icon": "font-awesome/fa-file-text-o",
+                    "label": {
+                        "en-US": "Message"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "left",
+                "type": "str",
+                "value": "500",
+                "ui": {
+                    "icon": "font-awesome/fa-location-arrow",
+                    "label": {
+                        "en-US": "x"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "top",
+                "type": "str",
+                "value": "300",
+                "ui": {
+                    "icon": "font-awesome/fa-location-arrow",
+                    "label": {
+                        "en-US": "y"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "width",
+                "type": "str",
+                "value": "180",
+                "ui": {
+                    "icon": "font-awesome/fa-text-width",
+                    "label": {
+                        "en-US": "Width"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "height",
+                "type": "str",
+                "value": "60",
+                "ui": {
+                    "icon": "font-awesome/fa-text-height",
+                    "label": {
+                        "en-US": "Height"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "fontSize",
+                "type": "str",
+                "value": "14"
+            },
+            {
+                "name": "fontFamily",
+                "type": "str",
+                "value": "Arial, sans-serif",
+                "ui": {
+                    "label": {
+                        "en-US": "Font"
+                    },
+                    "type": "select",
+                    "opts": {
+                        "opts": [
+                            {
+                                "l": {
+                                    "en-US": "Arial, sans-serif"
+                                },
+                                "v": "Arial, sans-serif"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Helvetica, sans-serif"
+                                },
+                                "v": "Helvetica, sans-serif"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Comic Sans MS, cursive"
+                                },
+                                "v": "Comic Sans MS, cursive"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Times New Roman, serif"
+                                },
+                                "v": "Times New Roman, serif"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Georgia, serif"
+                                },
+                                "v": "Georgia, serif"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Courier New, monospace"
+                                },
+                                "v": "Courier New, monospace"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Monaco, monospace"
+                                },
+                                "v": "Monaco, monospace"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Menlo, monospace"
+                                },
+                                "v": "Menlo, monospace"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Times New Roman, serif"
+                                },
+                                "v": "Times New Roman, serif"
+                            },
+                            {
+                                "l": {
+                                    "en-US": "Roboto, sans-serif"
+                                },
+                                "v": "Roboto, sans-serif"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "textColor",
+                "type": "str",
+                "value": "white",
+                "ui": {
+                    "icon": "font-awesome/fa-header",
+                    "label": {
+                        "en-US": "Text Color"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "textAlign",
+                "type": "str",
+                "value": "center"
+            },
+            {
+                "name": "color",
+                "type": "str",
+                "value": "black",
+                "ui": {
+                    "icon": "font-awesome/fa-h-square",
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "pressedColor",
+                "type": "str",
+                "value": "darkgrey",
+                "ui": {
+                    "icon": "font-awesome/fa-h-square",
+                    "label": {
+                        "en-US": "Pressed Color"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "border",
+                "type": "str",
+                "value": "1px solid white",
+                "ui": {
+                    "icon": "font-awesome/fa-window-maximize",
+                    "label": {
+                        "en-US": "Border"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "borderRadius",
+                "type": "str",
+                "value": "6",
+                "ui": {
+                    "icon": "font-awesome/fa-circle-o",
+                    "label": {
+                        "en-US": "Corner Radius"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "fontWeight",
+                "type": "str",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-bold",
+                    "label": {
+                        "en-US": "Font Weight"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "alignItems",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "wrapText",
+                "type": "str",
+                "value": "1"
+            },
+            {
+                "name": "pressDelay",
+                "type": "str",
+                "value": "200",
+                "ui": {
+                    "icon": "font-awesome/fa-clock-o",
+                    "label": {
+                        "en-US": "Pressed Time"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#87A980",
+        "icon": "node-red/mouse.svg"
+    },
+    {
+        "id": "854fcf2db95431c0",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "01496d579d794450",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "c3989f5aa8752b8b",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "854fcf2db95431c0",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "01496d579d794450",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "1bef072d29f3f4c1",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "c3989f5aa8752b8b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "31683a5f94497919",
+        "type": "function",
+        "z": "1b607c4bf53459a4",
+        "name": "function 3",
+        "func": "msg.top             = Number(env.get(\"top\"));\nmsg.left            = Number(env.get(\"left\"));\nmsg.width           = Number(env.get(\"width\"));\nmsg.height          = Number(env.get(\"height\"));\n\nmsg.color           = env.get(\"color\");\nmsg.pressedColor    = env.get(\"pressedColor\");\n\nmsg.border          = env.get(\"border\");\nmsg.borderRadius    = Number(env.get(\"borderRadius\"));\n\nmsg.fontFamily      = env.get(\"fontFamily\");\nmsg.fontSize        = Number(env.get(\"fontSize\"));\nmsg.fontWeight      = env.get(\"fontWeight\");\n\nmsg.textColor       = env.get(\"textColor\");\nmsg.textAlign       = env.get(\"textAlign\");\nmsg.alignItems      = env.get(\"alignItems\");\nmsg.justifyContent  = env.get(\"justifyContent\");\n\nmsg.wrapText        = env.get(\"wrapText\") === true || env.get(\"wrapText\") === \"true\";\n\nmsg.label           = env.get(\"label\");\nmsg.payloadOut      = env.get(\"payloadOut\");\nmsg.pressDelay      = env.get(\"pressDelay\");\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "d81c5188f589b9d7"
+            ]
+        ]
+    },
+    {
+        "id": "83a122aba3d48036",
+        "type": "inject",
+        "z": "1b607c4bf53459a4",
+        "name": "Start",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "31683a5f94497919"
+            ]
+        ]
+    },
+    {
+        "id": "d81c5188f589b9d7",
+        "type": "ui-template",
+        "z": "1b607c4bf53459a4",
+        "group": "1bef072d29f3f4c1",
+        "page": "${group}",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div :style=\"wrapperStyle\" @click=\"sendMessage\">\n    <div :style=\"buttonStyle\">\n      <span :style=\"labelStyle\">\n        {{ msg.label || \"Button\" }}\n      </span>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return { isPressed: false };\n  },\n  computed: {\n    wrapperStyle() {\n      return {\n        position: \"absolute\",\n        top: (this.msg.top || 0) + \"px\",\n        left: (this.msg.left || 0) + \"px\",\n        width: (this.msg.width || 140) + \"px\",\n        height: (this.msg.height || 40) + \"px\",\n        cursor: \"pointer\"\n      };\n    },\n    buttonStyle() {\n      return {\n        backgroundColor: this.isPressed\n          ? (this.msg.pressedColor || \"#888\")\n          : (this.msg.color || \"#ccc\"),\n        border: this.msg.border || \"none\",\n        borderRadius: (this.msg.borderRadius || 0) + \"px\",\n        width: \"100%\",\n        height: \"100%\",\n        display: \"flex\",\n        alignItems: this.msg.alignItems || \"center\",\n        justifyContent: this.msg.justifyContent || \"center\",\n        overflow: this.msg.wrapText === false ? \"hidden\" : \"visible\",\n        whiteSpace: this.msg.wrapText === false ? \"nowrap\" : \"normal\"\n      };\n    },\n    labelStyle() {\n      return {\n        fontFamily: this.msg.fontFamily || \"Arial\",\n        fontSize: (this.msg.fontSize || 0) + \"px\",\n        fontWeight: this.msg.fontWeight || \"normal\",\n        color: this.msg.textColor || \"black\",\n        textAlign: this.msg.textAlign || \"center\"\n      };\n    }\n  },\n  methods: {\n    sendMessage() {\n      this.isPressed = true;\n      this.send({ payload: this.msg.payloadOut || \"button pressed\" });\n      setTimeout(() => (this.isPressed = false), this.msg.pressDelay);\n    }\n  }\n};\n</script>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:page",
+        "className": "",
+        "x": 520,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "9ec908a82f9b4275",
         "type": "inject",
         "z": "d1331c655e18cc12",
@@ -164,5 +744,23 @@
         "x": 740,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "3e5d0f948a1dc91e",
+        "type": "subflow:1b607c4bf53459a4",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "c3989f5aa8752b8b",
+                "type": "conf-type"
+            }
+        ],
+        "x": 350,
+        "y": 260,
+        "wires": [
+            []
+        ]
     }
 ]
