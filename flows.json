@@ -461,6 +461,80 @@
         "color": "#DDAA99"
     },
     {
+        "id": "10f6dc27bf153ffb",
+        "type": "subflow",
+        "name": "Background",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [
+            {
+                "name": "group",
+                "type": "ui-page",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-sitemap",
+                    "label": {
+                        "en-US": "Group"
+                    },
+                    "type": "conf-types"
+                }
+            },
+            {
+                "name": "fileName",
+                "type": "str",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-file-text",
+                    "label": {
+                        "en-US": "File Name"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "num",
+                            "bool",
+                            "json",
+                            "bin",
+                            "env",
+                            "conf-types"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "1899ad506aec9742",
+        "type": "subflow",
+        "name": "Framing Tool",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [
+            {
+                "name": "group",
+                "type": "ui-page",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-sitemap",
+                    "label": {
+                        "en-US": "Group"
+                    },
+                    "type": "conf-types"
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#FFAAAA",
+        "icon": "font-awesome/fa-object-group"
+    },
+    {
         "id": "854fcf2db95431c0",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -548,6 +622,61 @@
         "visible": true,
         "disabled": false,
         "groupType": "default"
+    },
+    {
+        "id": "e50371a06584f998",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#878787",
+            "primary": "#990000",
+            "bgPage": "#000000",
+            "groupBg": "#000000",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "1f95c29a49b03d4f",
+        "type": "ui-page",
+        "name": "T-Mobile 5G",
+        "ui": "854fcf2db95431c0",
+        "path": "/page4",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "e50371a06584f998",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
     },
     {
         "id": "31683a5f94497919",
@@ -649,6 +778,93 @@
             [
                 "a61264e5a9bc0070"
             ]
+        ]
+    },
+    {
+        "id": "c24e93dc318fc765",
+        "type": "ui-template",
+        "z": "10f6dc27bf153ffb",
+        "group": "",
+        "page": "1f95c29a49b03d4f",
+        "ui": "",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": ".v-main {\n    background-image: url(\"/{{env.fileName}}\");\n    background-repeat: no-repeat;\n    background-size: cover;\n    /* or \"contain\", depending on desired scaling */\n    background-position: left center;\n    /* e.g., \"top right\" to align like your example */\n}",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "page:style",
+        "className": "",
+        "x": 470,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93ba8216090c31a8",
+        "type": "function",
+        "z": "10f6dc27bf153ffb",
+        "name": "function 2",
+        "func": "msg.fileName = \"4.png\"; \n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "c24e93dc318fc765"
+            ]
+        ]
+    },
+    {
+        "id": "c2a37a2bf416042a",
+        "type": "inject",
+        "z": "10f6dc27bf153ffb",
+        "name": "Start",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "93ba8216090c31a8"
+            ]
+        ]
+    },
+    {
+        "id": "8b9f9a8cb90a7211",
+        "type": "ui-template",
+        "z": "1899ad506aec9742",
+        "group": "",
+        "page": "${group}",
+        "ui": "",
+        "name": "Guide",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div style=\"position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;\">\n\n    <!-- Box -->\n    <div\n      ref=\"marker\"\n      @mousedown=\"startDrag($event)\"\n      @touchstart.prevent=\"startDrag($event)\"\n      :style=\"boxStyle\"\n    >\n      <div\n        @mousedown.stop.prevent=\"startResize($event)\"\n        @touchstart.stop.prevent=\"startResize($event)\"\n        :style=\"resizeHandleStyle\"\n      ></div>\n    </div>\n\n    <!-- Readout and All Sliders -->\n    <div\n      ref=\"readout\"\n      @mousedown=\"startReadoutDrag($event)\"\n      @touchstart.prevent=\"startReadoutDrag($event)\"\n      :style=\"readoutStyle\"\n    >\n      <div style=\"font-family: monospace; font-size: 14px; margin-bottom: 6px;\">\n        X: {{ boxX }}<br>\n        Y: {{ boxY }}<br>\n        W: {{ boxW }}<br>\n        H: {{ boxH }}\n      </div>\n\n      <!-- Position Sliders -->\n      <div style=\"display: flex; align-items: center; margin-bottom: 6px;\" @mousedown.stop @touchstart.stop>\n        <label style=\"margin-right: 6px;\">← →</label>\n        <input type=\"range\" min=\"-10\" max=\"10\" step=\"1\" v-model.number=\"horizontal\"\n          @input=\"adjustHorizontal\" @change=\"resetSlider('horizontal')\"\n          style=\"width: 220px;\" />\n      </div>\n\n      <div style=\"display: flex; align-items: center; margin-bottom: 6px;\" @mousedown.stop @touchstart.stop>\n        <label style=\"margin-right: 6px;\">↓ ↑</label>\n        <input type=\"range\" min=\"-10\" max=\"10\" step=\"1\" v-model.number=\"vertical\"\n          @input=\"adjustVertical\" @change=\"resetSlider('vertical')\"\n          style=\"width: 220px;\" />\n      </div>\n\n      <!-- Size Sliders -->\n      <div style=\"display: flex; align-items: center; margin-bottom: 6px;\" @mousedown.stop @touchstart.stop>\n        <label style=\"margin-right: 6px;\">↔ W</label>\n        <input type=\"range\" min=\"-10\" max=\"10\" step=\"1\" v-model.number=\"widthDelta\"\n          @input=\"adjustWidth\" @change=\"resetSlider('widthDelta')\"\n          style=\"width: 220px;\" />\n      </div>\n\n      <div style=\"display: flex; align-items: center;\" @mousedown.stop @touchstart.stop>\n        <label style=\"margin-right: 6px;\">↕ H</label>\n        <input type=\"range\" min=\"-10\" max=\"10\" step=\"1\" v-model.number=\"heightDelta\"\n          @input=\"adjustHeight\" @change=\"resetSlider('heightDelta')\"\n          style=\"width: 220px;\" />\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      boxX: 300,\n      boxY: 300,\n      boxW: 60,\n      boxH: 60,\n      readoutX: 20,\n      readoutY: 20,\n      draggingBox: false,\n      draggingReadout: false,\n      resizing: false,\n      offsetX: 0,\n      offsetY: 0,\n      startW: 0,\n      startH: 0,\n      startMouseX: 0,\n      startMouseY: 0,\n      horizontal: 0,\n      vertical: 0,\n      lastHorizontal: 0,\n      lastVertical: 0,\n      widthDelta: 0,\n      heightDelta: 0,\n      lastWidthDelta: 0,\n      lastHeightDelta: 0\n    };\n  },\n  computed: {\n    boxStyle() {\n      return {\n        position: \"absolute\",\n        top: this.boxY + \"px\",\n        left: this.boxX + \"px\",\n        width: this.boxW + \"px\",\n        height: this.boxH + \"px\",\n        backgroundColor: \"rgba(0, 0, 0, 0.6)\",\n        border: \"1px solid black\",\n        borderRadius: \"0px\",\n        cursor: this.resizing ? \"nwse-resize\" : \"move\",\n        zIndex: 1000\n      };\n    },\n    resizeHandleStyle() {\n      return {\n        position: \"absolute\",\n        bottom: \"-6px\",\n        right: \"-6px\",\n        width: \"12px\",\n        height: \"12px\",\n        backgroundColor: \"white\",\n        border: \"2px solid black\",\n        borderRadius: \"50%\",\n        cursor: \"nwse-resize\",\n        zIndex: 1001\n      };\n    },\n    readoutStyle() {\n      return {\n        position: \"absolute\",\n        top: this.readoutY + \"px\",\n        left: this.readoutX + \"px\",\n        backgroundColor: \"white\",\n        color: \"black\",\n        padding: \"8px 10px\",\n        fontFamily: \"monospace\",\n        fontSize: \"14px\",\n        border: \"1px solid #888\",\n        borderRadius: \"6px\",\n        cursor: \"move\",\n        zIndex: 1001,\n        width: \"300px\",\n        userSelect: \"none\",\n        boxShadow: \"0 0 6px rgba(0,0,0,0.15)\"\n      };\n    }\n  },\n  methods: {\n    adjustHorizontal() {\n      const delta = this.horizontal - this.lastHorizontal;\n      this.boxX += delta;\n      this.lastHorizontal = this.horizontal;\n    },\n    adjustVertical() {\n      const delta = this.vertical - this.lastVertical;\n      this.boxY -= delta;\n      this.lastVertical = this.vertical;\n    },\n    adjustWidth() {\n      const delta = this.widthDelta - this.lastWidthDelta;\n      this.boxW = Math.max(10, this.boxW + delta);\n      this.lastWidthDelta = this.widthDelta;\n    },\n    adjustHeight() {\n      const delta = this.heightDelta - this.lastHeightDelta;\n      this.boxH = Math.max(10, this.boxH + delta);\n      this.lastHeightDelta = this.heightDelta;\n    },\n    resetSlider(name) {\n      this[name] = 0;\n      if (name === 'horizontal') this.lastHorizontal = 0;\n      if (name === 'vertical') this.lastVertical = 0;\n      if (name === 'widthDelta') this.lastWidthDelta = 0;\n      if (name === 'heightDelta') this.lastHeightDelta = 0;\n    },\n\n    startDrag(e) {\n      if (this.resizing) return;\n      const event = e.touches ? e.touches[0] : e;\n      this.draggingBox = true;\n      this.offsetX = event.clientX - this.boxX;\n      this.offsetY = event.clientY - this.boxY;\n      document.addEventListener(\"mousemove\", this.onBoxDrag);\n      document.addEventListener(\"mouseup\", this.stopDrag);\n      document.addEventListener(\"touchmove\", this.onBoxDrag);\n      document.addEventListener(\"touchend\", this.stopDrag);\n    },\n    onBoxDrag(e) {\n      if (!this.draggingBox) return;\n      const event = e.touches ? e.touches[0] : e;\n      this.boxX = Math.round(event.clientX - this.offsetX);\n      this.boxY = Math.round(event.clientY - this.offsetY);\n    },\n\n    startResize(e) {\n      this.resizing = true;\n      const event = e.touches ? e.touches[0] : e;\n      this.startW = this.boxW;\n      this.startH = this.boxH;\n      this.startMouseX = event.clientX;\n      this.startMouseY = event.clientY;\n      document.addEventListener(\"mousemove\", this.onResize);\n      document.addEventListener(\"mouseup\", this.stopResize);\n      document.addEventListener(\"touchmove\", this.onResize);\n      document.addEventListener(\"touchend\", this.stopResize);\n    },\n    onResize(e) {\n      if (!this.resizing) return;\n      const event = e.touches ? e.touches[0] : e;\n      this.boxW = Math.max(10, Math.round(this.startW + (event.clientX - this.startMouseX)));\n      this.boxH = Math.max(10, Math.round(this.startH + (event.clientY - this.startMouseY)));\n    },\n    stopResize() {\n      this.resizing = false;\n      document.removeEventListener(\"mousemove\", this.onResize);\n      document.removeEventListener(\"mouseup\", this.stopResize);\n      document.removeEventListener(\"touchmove\", this.onResize);\n      document.removeEventListener(\"touchend\", this.stopResize);\n    },\n\n    startReadoutDrag(e) {\n      const event = e.touches ? e.touches[0] : e;\n      this.draggingReadout = true;\n      this.offsetX = event.clientX - this.readoutX;\n      this.offsetY = event.clientY - this.readoutY;\n      document.addEventListener(\"mousemove\", this.onReadoutDrag);\n      document.addEventListener(\"mouseup\", this.stopDrag);\n      document.addEventListener(\"touchmove\", this.onReadoutDrag);\n      document.addEventListener(\"touchend\", this.stopDrag);\n    },\n    onReadoutDrag(e) {\n      if (!this.draggingReadout) return;\n      const event = e.touches ? e.touches[0] : e;\n      this.readoutX = Math.round(event.clientX - this.offsetX);\n      this.readoutY = Math.round(event.clientY - this.offsetY);\n    },\n    stopDrag() {\n      this.draggingBox = false;\n      this.draggingReadout = false;\n      document.removeEventListener(\"mousemove\", this.onBoxDrag);\n      document.removeEventListener(\"mouseup\", this.stopDrag);\n      document.removeEventListener(\"touchmove\", this.onBoxDrag);\n      document.removeEventListener(\"touchend\", this.stopDrag);\n      document.removeEventListener(\"mousemove\", this.onReadoutDrag);\n      document.removeEventListener(\"touchmove\", this.onReadoutDrag);\n    }\n  }\n};\n</script>\n",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:page",
+        "className": "",
+        "x": 490,
+        "y": 260,
+        "wires": [
+            []
         ]
     },
     {
@@ -842,6 +1058,22 @@
         ],
         "x": 150,
         "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f2dd97c861dc14b7",
+        "type": "subflow:1899ad506aec9742",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "c3989f5aa8752b8b",
+                "type": "conf-type"
+            }
+        ],
+        "x": 210,
+        "y": 340,
         "wires": []
     }
 ]
