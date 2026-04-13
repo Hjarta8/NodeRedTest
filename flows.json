@@ -436,6 +436,31 @@
         "icon": "node-red/mouse.svg"
     },
     {
+        "id": "ae0cbc766fdbb2ea",
+        "type": "subflow",
+        "name": "nav",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [
+            {
+                "name": "group",
+                "type": "ui-page",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-sitemap",
+                    "label": {
+                        "en-US": "Group"
+                    },
+                    "type": "conf-types"
+                }
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
         "id": "854fcf2db95431c0",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -585,6 +610,45 @@
         "y": 140,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "a61264e5a9bc0070",
+        "type": "ui-control",
+        "z": "ae0cbc766fdbb2ea",
+        "name": "Page Change",
+        "ui": "854fcf2db95431c0",
+        "events": "change",
+        "x": 480,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4544bafe9a90f5bc",
+        "type": "ui-template",
+        "z": "ae0cbc766fdbb2ea",
+        "group": "",
+        "page": "${group}",
+        "ui": "",
+        "name": "Nav",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <div id=\"persistent-sidebar\">\n    <!-- 🔘 One button per page, customize below -->\n    <button\n      :style=\"{ backgroundColor: buttonColors['Home'], color: buttonTextColors['Home'] }\"\n      @click=\"switchPage($event, 'Home')\"\n    >Home</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Technology Park'], color: buttonTextColors['Technology Park'] }\"\n      @click=\"switchPage($event, 'Technology Park')\"\n    >Technology Park</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Innovation Center'], color: buttonTextColors['Innovation Center'] }\"\n      @click=\"switchPage($event, 'Innovation Center')\"\n    >Innovation Center</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['T-Mobile 5G'], color: buttonTextColors['T-Mobile 5G'] }\"\n      @click=\"switchPage($event, 'T-Mobile 5G')\"\n    >T-Mobile 5G</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Logistics'], color: buttonTextColors['Logistics'] }\"\n      @click=\"switchPage($event, 'Logistics')\"\n    >Logistics</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Safe, Smart, Community'], color: buttonTextColors['Safe, Smart, Community'] }\"\n      @click=\"switchPage($event, 'Safe, Smart, Community')\"\n    >Safe, Smart, Community</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Utilities'], color: buttonTextColors['Utilities'] }\"\n      @click=\"switchPage($event, 'Utilities')\"\n    >Utilities</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Sustainability'], color: buttonTextColors['Sustainability'] }\"\n      @click=\"switchPage($event, 'Sustainability')\"\n    >Sustainability</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Autonomous Solutions'], color: buttonTextColors['Autonomous Solutions'] }\"\n      @click=\"switchPage($event, 'Autonomous Solutions')\"\n    >Autonomous Solutions</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['University Partners'], color: buttonTextColors['University Partners'] }\"\n      @click=\"switchPage($event, 'University Partners')\"\n    >University Partners</button>\n\n    <button\n      :style=\"{ backgroundColor: buttonColors['Lights On/Off'], color: buttonTextColors['Lights On/Off'] }\"\n      @click=\"switchPage($event, 'Lights On/Off')\"\n    >Lights On/Off</button>\n  </div>\n</template>\n\n<style>\n  .nr-dashboard-theme .md-content {\n    margin-left: 200px !important;\n    /* 👈 Push content over for sidebar */\n  }\n\n  #persistent-sidebar {\n    position: fixed;\n    /* 👈 Keeps sidebar always on screen */\n    top: 0;\n    left: 0;\n    height: 200vh;\n    /* 🔧 Sidebar height. Use 100vh for 1-screen, 200vh to ensure overflow fill */\n    width: 175px;\n    /* 🔧 Sidebar width. Try 150px–250px */\n    background-color: #222;\n    /* 🎨 Sidebar background. Try '#000', '#444', 'black', 'darkslategray' */\n    z-index: 9999;\n    padding-top: 3px;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    align-items: stretch;\n    transform: scale(0.6);\n    /* 🔧 Shrink sidebar for touchscreen layout */\n    transform-origin: top left;\n  }\n\n  #persistent-sidebar button {\n    border: none;\n    margin: 1px 3px;\n    /* 🔧 spacing between buttons */\n    padding: 12px 16px;\n    /* 🔧 padding inside button */\n    font-size: 20px;\n    /* 🔧 text size (try 16–24px) */\n    border-radius: 0px;\n    /* 🔧 corner rounding (try 8px for round) */\n    text-align: center;\n    cursor: pointer;\n    transition: background 0.2s ease;\n    height: 89px;\n    /* 🔧 fixed height. Try 70–100px for visual balance */\n    line-height: 1.2;\n    white-space: normal;\n    /* ✅ allow 2-line text */\n    word-break: break-word;\n    overflow: hidden;\n  }\n\n  /* ✅ Flash color when pressed (override everything) */\n  #persistent-sidebar button.pressed {\n    background-color: white !important;\n    /* ✅ quick flash background */\n    color: black !important;\n    /* ✅ quick flash text */\n  }\n</style>\n\n<script>\n  export default {\n  data() {\n    // 🎨 Shared color constants\n    const DEFAULT_COLOR = '#878787';\t\t\t\t// 🔧 typical gray background\n    const HIGHLIGHT_COLOR = '#ffffff';\t\t\t\t// 🔧 highlight background (use on \"selected\" pages)\n    const DEFAULT_TEXT_COLOR = 'white';\t\t\t\t// 🔧 text color on dark buttons\n    const ALT_TEXT_COLOR = 'black';\t\t\t\t// 🔧 text color on light buttons\n\n    return {\n      // 🎨 Per-button background color (use color name, hex, rgb)\n      buttonColors: {\n        'Home': DEFAULT_COLOR,\t\t\t\t// e.g. '#444', 'red', 'orange'\n        'Technology Park': DEFAULT_COLOR,\n        'Innovation Center': DEFAULT_COLOR,\n        'T-Mobile 5G': HIGHLIGHT_COLOR,\n        'Logistics': DEFAULT_COLOR,\n        'Safe, Smart, Community': DEFAULT_COLOR,\n        'Utilities': DEFAULT_COLOR,\n        'Sustainability': DEFAULT_COLOR,\n        'Autonomous Solutions': DEFAULT_COLOR,\n        'University Partners': DEFAULT_COLOR,\n        'Lights On/Off': DEFAULT_COLOR\n      },\n\n      // 🎨 Per-button text color (typically black on light backgrounds)\n      buttonTextColors: {\n        'Home': DEFAULT_TEXT_COLOR,\n        'Technology Park': DEFAULT_TEXT_COLOR,\n        'Innovation Center': DEFAULT_TEXT_COLOR,\n        'T-Mobile 5G': ALT_TEXT_COLOR,\n        'Logistics': DEFAULT_TEXT_COLOR,\n        'Safe, Smart, Community': DEFAULT_TEXT_COLOR,\n        'Utilities': DEFAULT_TEXT_COLOR,\n        'Sustainability': DEFAULT_TEXT_COLOR,\n        'Autonomous Solutions': DEFAULT_TEXT_COLOR,\n        'University Partners': DEFAULT_TEXT_COLOR,\n        'Lights On/Off': DEFAULT_TEXT_COLOR\n      }\n    };\n  },\n\n  methods: {\n    switchPage(event, pageName) {\n      const btn = event.target;\n      btn.classList.add(\"pressed\");\t\t\t\t// ✅ Add flash class\n\n      setTimeout(() => {\n        btn.classList.remove(\"pressed\");\t\t\t// ✅ Remove flash class after 125ms\n      }, 125);\n\n      this.send({ payload: pageName });\t\t\t// 🚀 Send selected page to Node-RED\n    }\n  }\n};\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "widget:page",
+        "className": "",
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "a61264e5a9bc0070"
+            ]
         ]
     },
     {
@@ -762,5 +826,21 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "82545d0e657a932d",
+        "type": "subflow:ae0cbc766fdbb2ea",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "c3989f5aa8752b8b",
+                "type": "conf-type"
+            }
+        ],
+        "x": 150,
+        "y": 240,
+        "wires": []
     }
 ]
