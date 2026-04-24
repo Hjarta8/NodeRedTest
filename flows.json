@@ -2480,7 +2480,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 420,
-        "y": 140,
+        "y": 120,
         "wires": []
     },
     {
@@ -2608,10 +2608,12 @@
                 "type": "conf-type"
             }
         ],
-        "x": 350,
-        "y": 260,
+        "x": 330,
+        "y": 200,
         "wires": [
-            []
+            [
+                "3d34660d437fe7d7"
+            ]
         ]
     },
     {
@@ -2646,5 +2648,173 @@
         "x": 210,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "ed0a01b425e9e9c2",
+        "type": "subflow:1b607c4bf53459a4",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "c3989f5aa8752b8b",
+                "type": "conf-type"
+            },
+            {
+                "name": "top",
+                "value": "400",
+                "type": "str"
+            }
+        ],
+        "x": 330,
+        "y": 260,
+        "wires": [
+            [
+                "9ab20f40c3a3e4b3"
+            ]
+        ]
+    },
+    {
+        "id": "b556d3e8276463f0",
+        "type": "subflow:1b607c4bf53459a4",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "c3989f5aa8752b8b",
+                "type": "conf-type"
+            },
+            {
+                "name": "left",
+                "value": "800",
+                "type": "str"
+            }
+        ],
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "26bff3e43c59e48e"
+            ]
+        ]
+    },
+    {
+        "id": "aae9236559326728",
+        "type": "subflow:1b607c4bf53459a4",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "c3989f5aa8752b8b",
+                "type": "conf-type"
+            },
+            {
+                "name": "left",
+                "value": "800",
+                "type": "str"
+            },
+            {
+                "name": "top",
+                "value": "400",
+                "type": "str"
+            }
+        ],
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "4b2fa71e0ea027cf"
+            ]
+        ]
+    },
+    {
+        "id": "3d34660d437fe7d7",
+        "type": "subflow:693ca80fe91d889d",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "",
+                "type": "conf-type"
+            }
+        ],
+        "x": 470,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9ab20f40c3a3e4b3",
+        "type": "subflow:693ca80fe91d889d",
+        "z": "d1331c655e18cc12",
+        "name": "",
+        "env": [
+            {
+                "name": "group",
+                "value": "",
+                "type": "conf-type"
+            },
+            {
+                "name": "startVal",
+                "value": "255",
+                "type": "str"
+            },
+            {
+                "name": "endVal",
+                "value": "0",
+                "type": "str"
+            }
+        ],
+        "x": 470,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "26bff3e43c59e48e",
+        "type": "wled2",
+        "z": "d1331c655e18cc12",
+        "address": "192.168.1.50",
+        "brightness": 128,
+        "delay": 0,
+        "color1": "#ffffff",
+        "color2": "#ffffff",
+        "color3": "#ffffff",
+        "effect": 0,
+        "effectIntensity": 128,
+        "effectSpeed": 128,
+        "name": "",
+        "palette": "0",
+        "preset": 0,
+        "state": "on",
+        "x": 470,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b2fa71e0ea027cf",
+        "type": "wled2",
+        "z": "d1331c655e18cc12",
+        "address": "192.168.1.50",
+        "brightness": 128,
+        "delay": 0,
+        "color1": "#0016ff",
+        "color2": "#ffffff",
+        "color3": "#ffffff",
+        "effect": 0,
+        "effectIntensity": 128,
+        "effectSpeed": 128,
+        "name": "",
+        "palette": "0",
+        "preset": 0,
+        "state": "on",
+        "x": 470,
+        "y": 380,
+        "wires": [
+            []
+        ]
     }
 ]
